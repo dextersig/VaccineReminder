@@ -16,15 +16,46 @@
       <h1>Vaccine Reminder</h1>
     </header>
     <p>Testing this bitch</p>
-
+    <!-- date of birth, medical conditions and chronic conditions, email notifs-->
     <form action="/submit_form.php" target = "_blank" method = "POST">
+      <!-- Name -->
       <label for="firstName">First Name:</label>
       <input type = "text" id="firstName" name = "firstName"><br>
       <label for="lastName">Last Name:</label>
       <input type = "text" id="lastName" name = "lastName"><br>
-      <input type = "submit" value="Submit">
-      
 
+      <!-- Date of Birth -->
+      <input type="radio" id="jan" name="birth month" value="jan">
+      <label for="jan">jan\t</label>
+      <input type="radio" id="feb" name="birth month" value="feb">
+      <label for="feb">feb\t</label>
+      <input type="radio" id="mar" name="birth month" value="mar">
+      <label for="mar">mar\t</label>
+
+      <!-- Medical Conditions -->
+      <p>Medical Conditions</p>
+      <input type="checkbox" id="condition1" name="condition1" value="condition1">
+      <label for="condition1">Condition 1</label><br>
+      <input type="checkbox" id="condition2" name="condition2" value="condition2">
+      <label for="condition2">Condition2</label><br>
+      <input type="checkbox" id="condition3" name="condition3" value="condition3">
+      <label for="condition3">Condition3</label><br>
+
+      <!-- Chronic Conditions -->
+       <p>Chronic Conditions</p>
+      <input type="checkbox" id="condition1" name="condition1" value="condition1">
+      <label for="condition1">Condition 1</label><br>
+      <input type="checkbox" id="condition2" name="condition2" value="condition2">
+      <label for="condition2">Condition2</label><br>
+      <input type="checkbox" id="condition3" name="condition3" value="condition3">
+      <label for="condition3">Condition3</label><br>
+
+      <!-- email -->
+      <label for="email">Email:</label>
+      <input type = "text" id="email" name = "email"><br>
+
+      <!-- submit -->
+      <input type = "submit" value="Submit">
 
     </form>
     <!-- body and stuff-->
