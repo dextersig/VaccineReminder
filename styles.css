@@ -18,6 +18,11 @@ header {
 	min-width: 100%;
 }
 
+main {
+	padding-top: 2vh;
+	text-align: center;
+}
+
 footer {
 	background-color: #DD7DBF;
 }
