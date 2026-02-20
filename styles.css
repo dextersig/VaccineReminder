@@ -1,11 +1,11 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
-  background-color: rgb(248, 187, 228);
+  background-color: #EBB1D9;
 }
 
 .myHeader {
-  background-color: rgb(246, 96, 121);
+  background-color: #DD7DBF;
   color: black;
   min-width: 100%;
   display: flex;
@@ -13,6 +13,6 @@ body {
 }
 
 .myFooter {
-  background-color: rgb(248, 187, 228);
+  background-color: #DD7DBF;
   display: flex;
 }
