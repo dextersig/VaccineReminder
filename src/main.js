@@ -10,6 +10,7 @@ submitBtn.addEventListener("click", () => {
   const birthDay = document.getElementById("birthDay").value;
   let conditions = [];
   let vaccinesAndDates = [];
+  let email;
 
   //risk factors
   if (document.getElementById("Chronic salicylate therapy").checked) {
@@ -74,7 +75,7 @@ submitBtn.addEventListener("click", () => {
     vaccinesAndDates.push(document.getElementById("dayVaricellaDose2").value);
   }
 
-
+  emial = document.getElementById("Varicella Dose 2").value;
 
 
   const name = `${firstName} ${lastName}`;
