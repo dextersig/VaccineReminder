@@ -1,120 +1,134 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="css/styles.css"/>
-    <link rel="stylesheet" href="css/dark.css" id="dark"/>
-	<link rel="stylesheet" href="css/light.css" id="light" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Sour Gummy font import -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Vaccine Reminder</title>
-  </head>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/dark.css" id="dark"/>
+  <link rel="stylesheet" href="css/light.css" id="light"/>
 
-  <body>
-    <header>
-		<!-- title and stuff-->
-		<h1>Vaccine Reminder</h1>
-		<button type="button" onclick="toggleStylesheet(light)">Toggle Theme</button>
-	</header>
+  <!-- Sour Gummy font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap" rel="stylesheet">
 
-    <main>
-      <form id="userData">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" /><br>
+  <title>Vaccine Reminder</title>
+</head>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" /><br>
+<body>
 
-        <label for="birthDay">Birthday:</label>
-        <input type="date" id="birthDay" /><br>
+<header>
+  <h1>Vaccine Reminder</h1>
+  <button type="button" onclick="toggleStylesheet(light)">Toggle Theme</button>
+</header>
 
-        <!-- email -->
-			  <label for="email">Email:</label>
-			  <input type = "email" id="email" name = "email"><br>
+<main>
 
-        <h3><b>Risk Factors</b></h3>
-        <input type="checkbox" id="Chronic salicylate therapy" name="medical" value = "Chronic salicylate therapy">
-        <label for="Chronic salicylate therapy">Chronic salicylate therapy</label><br>
-        <input type="checkbox" id="HIV" name="medical" value = "HIV">
-        <label for="HIV">HIV</label><br>
-        <input type="checkbox" id="Asplenia" name="medical" value = "Asplenia">
-        <label for="Asplenia">Asplenia</label><br>
-        <input type="checkbox" id="Dialysis/Renal Disease" name="chronic" value = "Dialysis/Renal Disease">
-        <label for="Dialysis/Renal Disease">Dialysis/Renal Disease</label><br>
-        <input type="checkbox" id="Cystic fibrosis" name="chronic" value = "Cystic fibrosis">
-        <label for="Cystic fibrosis">Cystic fibrosis</label><br>
-        <input type="checkbox" id="Organ transplant" name="chronic" value = "Organ transplant">
-        <label for="Organ transplant">Organ transplant</label><br>
-        <input type="checkbox" id="Cancer" name="chronic" value = "Cancer">
-        <label for="Cancer">Cancer</label><br>
-        <input type="checkbox" id="Hematopoietic stem cell transplant" name="chronic" value = "Hematopoietic stem cell transplant">
-        <label for="Hematopoietic stem cell transplant">Hematopoietic stem cell transplant</label><br>
-        <input type="checkbox" id="CAR T-cell therapy recipients" name="chronic" value = "CAR T-cell therapy recipients">
-        <label for="CAR T-cell therapy recipients">CAR T-cell therapy recipients</label><br>
-        <input type="checkbox" id="Under the care of a haematologist or oncologist" name="chronic" value = "Under the care of a haematologist or oncologist">
-        <label for="Under the care of a haematologist or oncologist">Under the care of a haematologist or oncologist</label><br>
-        <input type="checkbox" id="Hyposplenic" name="chronic" value = "Hyposplenic">
-        <label for="Hyposplenic">Hyposplenic</label><br>
-        <input type="checkbox" id="Malignant neoplasms" name="chronic" value = "Malignant neoplasms">
-        <label for="Malignant neoplasms">Malignant neoplasms</label><br>
-        <input type="checkbox" id="Incompletely Immunized - OPV and less than 2 IPV Doses" name="chronic" value = "Incompletely Immunized - OPV and less than 2 IPV Doses">
-        <label for="Incompletely Immunized - OPV and less than 2 IPV Doses">Incompletely Immunized - OPV and less than 2 IPV Doses</label><br>
-        <input type="checkbox" id="Travel to Measles Endemic Country" name="chronic" value = "Travel to Measles Endemic Country">
-        <label for="Travel to Measles Endemic Country">Travel to Measles Endemic Country</label><br>
-        <input type="checkbox" id="Live/Travel regularly to Northern Manitoba" name="chronic" value = "Live/Travel regularly to Northern Manitoba">
-        <label for="Live/Travel regularly to Northern Manitoba">Live/Travel regularly to Northern Manitoba</label><br>
+<form id="userData">
 
-        <p><b>Select Those That Apply to You</b></p>
-        <input type="checkbox" id="Student" name="chronic" value = "Student">
-        <label for="Student">Student</label><br>
-        <input type="checkbox" id="Retired" name="chronic" value = "Retired">
-        <label for="Retired">Retired</label><br>
-        <input type="checkbox" id="Healthcare Worker" name="chronic" value = "Healthcare Worker">
-        <label for="Healthcare Worker">Healthcare Worker</label><br>
-        <input type="checkbox" id="General Worker" name="chronic" value = "General Worker">
-        <label for="General Worker">General Worker</label><br>
+<!-- BASIC INFO -->
 
+<label for="firstName">First Name:</label>
+<input type="text" id="firstName"><br>
 
-        <!-- Vaccines -->
-        <h3><b>Vaccines</b></h3>
-        <input type="checkbox" id="MMRV Dose 1" name="MMRV Dose 1">
-        <label for="MMRV Dose 1">MMRV Dose 1</label>
-        <input type = "date" id = "dayMMRVDose1" name = "MMRV Dose 1" min = "1900-01-01" max = "2100-01-01"><br>
-        <input type="checkbox" id="MMRV Dose 2" name="MMRV Dose 2">
-        <label for="MMRV Dose 2">MMRV Dose 2</label>
-        <input type = "date" id = "dayMMRVDose2" name = "MMRV Dose 2" min = "1900-01-01" max = "2100-01-01"><br>
-         <input type="checkbox" id="MMR Dose 1" name="MMR Dose 1">
-        <label for="MMR Dose 1">MMR Dose 1</label>
-        <input type = "date" id = "dayMMRDose1" name = "MMR Dose 1" min = "1900-01-01" max = "2100-01-01"><br>
-        <input type="checkbox" id="MMR Dose 2" name="MMR Dose 2">
-        <label for="MMR Dose 2">MMR Dose 2</label>
-        <input type = "date" id = "dayMMRDose2" name = "MMR Dose 2" min = "1900-01-01" max = "2100-01-01"><br>
-        <input type="checkbox" id="IPV Dose 1" name="IPV Dose 1">
-        <label for="IPV Dose 1">IPV Dose 1</label>
-        <input type = "date" id = "dayIPVDose1" name = "IPV Dose 1" min = "1900-01-01" max = "2100-01-01"><br>
-        <input type="checkbox" id="IPV Dose 2" name="IPV Dose 2">
-        <label for="IPV Dose 2">IPV Dose 2</label>
-        <input type = "date" id = "dayIPV" name = "IPV" min = "1900-01-01" max = "2100-01-01"><br>
-        <input type="checkbox" id="Varicella Dose 1" name="Varicella Dose 1">
-        <label for="Varicella Dose 1">Varicella Dose 1</label>
-        <input type = "date" id = "dayVaricellaDose1" name = "Varicella Dose 1" min = "1900-01-01" max = "2100-01-01"><br>
-        <input type="checkbox" id="Varicella Dose 2" name="Varicella Dose 2">
-        <label for="Varicella Dose 2">Varicella Dose 2</label>
-        <input type = "date" id = "dayVaricellaDose2" name = "Varicella Dose 2"  min = "1900-01-01" max = "2100-01-01"><br><br>
+<label for="lastName">Last Name:</label>
+<input type="text" id="lastName"><br>
 
+<label for="birthDay">Birthday:</label>
+<input type="date" id="birthDay"><br>
 
-        <button type="button" id="submitBtn">Submit</button>
-      </form>
+<label for="email">Email:</label>
+<input type="email" id="email"><br>
 
-      <div id="app"></div>
+<!-- RISK FACTORS -->
 
-	<script src=js/themeSwitcher.js></script>
+<h3>Risk Factors</h3>
 
-	</main>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<input type="checkbox" id="chronicSalicylate" name="medical" value="Chronic salicylate therapy">
+<label for="chronicSalicylate">Chronic salicylate therapy</label><br>
+
+<input type="checkbox" id="hiv" name="medical" value="HIV">
+<label for="hiv">HIV</label><br>
+
+<input type="checkbox" id="asplenia" name="medical" value="Asplenia">
+<label for="asplenia">Asplenia</label><br>
+
+<input type="checkbox" id="dialysis" name="chronic" value="Dialysis/Renal Disease">
+<label for="dialysis">Dialysis/Renal Disease</label><br>
+
+<input type="checkbox" id="cysticFibrosis" name="chronic" value="Cystic fibrosis">
+<label for="cysticFibrosis">Cystic fibrosis</label><br>
+
+<input type="checkbox" id="organTransplant" name="chronic" value="Organ transplant">
+<label for="organTransplant">Organ transplant</label><br>
+
+<input type="checkbox" id="cancer" name="chronic" value="Cancer">
+<label for="cancer">Cancer</label><br>
+
+<input type="checkbox" id="stemCell" name="chronic" value="Hematopoietic stem cell transplant">
+<label for="stemCell">Hematopoietic stem cell transplant</label><br>
+
+<input type="checkbox" id="cartTherapy" name="chronic" value="CAR T-cell therapy recipients">
+<label for="cartTherapy">CAR T-cell therapy recipients</label><br>
+
+<input type="checkbox" id="hematologist" name="chronic" value="Under the care of a haematologist or oncologist">
+<label for="hematologist">Under the care of a haematologist or oncologist</label><br>
+
+<input type="checkbox" id="hyposplenic" name="chronic" value="Hyposplenic">
+<label for="hyposplenic">Hyposplenic</label><br>
+
+<input type="checkbox" id="malignant" name="chronic" value="Malignant neoplasms">
+<label for="malignant">Malignant neoplasms</label><br>
+
+<input type="checkbox" id="incompleteIPV" name="chronic" value="Incompletely Immunized - OPV and less than 2 IPV Doses">
+<label for="incompleteIPV">Incomplete IPV</label><br>
+
+<!-- VACCINES -->
+
+<h3>Vaccines</h3>
+
+<input type="checkbox" id="MMRVDose1" name="MMRV Dose 1">
+<label for="MMRVDose1">MMRV Dose 1</label>
+<input type="date" id="dayMMRVDose1"><br>
+
+<input type="checkbox" id="MMRVDose2" name="MMRV Dose 2">
+<label for="MMRVDose2">MMRV Dose 2</label>
+<input type="date" id="dayMMRVDose2"><br>
+
+<input type="checkbox" id="MMRDose1" name="MMR Dose 1">
+<label for="MMRDose1">MMR Dose 1</label>
+<input type="date" id="dayMMRDose1"><br>
+
+<input type="checkbox" id="MMRDose2" name="MMR Dose 2">
+<label for="MMRDose2">MMR Dose 2</label>
+<input type="date" id="dayMMRDose2"><br>
+
+<input type="checkbox" id="IPVDose1" name="IPV Dose 1">
+<label for="IPVDose1">IPV Dose 1</label>
+<input type="date" id="dayIPVDose1"><br>
+
+<input type="checkbox" id="IPVDose2" name="IPV Dose 2">
+<label for="IPVDose2">IPV Dose 2</label>
+<input type="date" id="dayIPVDose2"><br>
+
+<input type="checkbox" id="VaricellaDose1" name="Varicella Dose 1">
+<label for="VaricellaDose1">Varicella Dose 1</label>
+<input type="date" id="dayVaricellaDose1"><br>
+
+<input type="checkbox" id="VaricellaDose2" name="Varicella Dose 2">
+<label for="VaricellaDose2">Varicella Dose 2</label>
+<input type="date" id="dayVaricellaDose2"><br><br>
+
+<button type="button" id="submitBtn">Submit</button>
+
+</form>
+
+<div id="app"></div>
+
+<script src="js/themeSwitcher.js"></script>
+<script type="module" src="/src/main.js"></script>
+
+</main>
+</body>
 </html>
