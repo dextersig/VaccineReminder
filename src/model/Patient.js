@@ -29,6 +29,10 @@ export class Patient {
     return age;
   }
 
+  get birthYear(){
+    return this.#dateOfBirth.getFullYear();
+  }
+
   get ageInMonths() {
     return this.ageInYears * 12;
   }

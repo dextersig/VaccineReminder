@@ -27,21 +27,26 @@ export class Varicella extends VaccineRule {
   search_strings = [
     "Chronic salicylate therapy",
     "HIV",
-    "Dialysis",
+    "Asplenia",
+    "Dialysis/Renal Disease",
     "Cystic fibrosis",
     "Organ transplant",
     "Cancer",
+    "Hematopoietic stem cell transplant",
+    "CAR T-cell therapy recipients",
+    "Under the care of a haematologist or oncologist",
   ];
 
   name = "Varicella";
 
   checkEligibility(patient) {
     if (
-      patient.ageInYears < 16 ||
-      containsAny(this.search_strings, patient.conditions)
-    )
-      return VaccineStatus.ELIGIBLE_NOW;
-    return VaccineStatus.NOT_ELIGIBLE;
+      ((patient.birthYear >= 2008) && (patient.ageInYears >= 1)) ||
+      containsAny(this.search_strings, patient.conditions)){
+        return VaccineStatus.ELIGIBLE_NOW;
+      }else{
+        return VaccineStatus.NOT_ELIGIBLE;
+      }
   }
 }
 
