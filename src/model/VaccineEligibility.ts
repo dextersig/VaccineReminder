@@ -16,7 +16,7 @@ export class IPV implements VaccineRule {
 
   checkEligibility(patient: Patient): VaccineStatus {
     if (
-      patient.ageInYears < 18 &&
+      patient.ageInYears < 18 ||
       containsAny(this.search_strings, patient.conditions)
     )
       return VaccineStatus.ELIGIBLE_NOW;
@@ -38,7 +38,7 @@ export class Varicella implements VaccineRule {
 
   checkEligibility(patient: Patient): VaccineStatus {
     if (
-      patient.ageInYears < 16 &&
+      patient.ageInYears < 16 ||
       containsAny(this.search_strings, patient.conditions)
     )
       return VaccineStatus.ELIGIBLE_NOW;
