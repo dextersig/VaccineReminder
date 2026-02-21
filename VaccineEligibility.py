@@ -106,7 +106,7 @@ def Varicella(Patient):
     
     patientConditions = Patient["Chronic Condtions"]
 
-    searchStrings = ["chronic salicylate therapy" , "HIV"  , "Dialysis" , "Cystic fibrosis" , "Organ transplant" , "Cancer"]
+    searchStrings = ["Chronic salicylate therapy" , "HIV"  , "Dialysis" , "Cystic fibrosis" , "Organ transplant" , "Cancer"]
 
     diseaseCondition = False
 

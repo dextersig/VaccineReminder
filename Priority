@@ -1,0 +1,11 @@
+from enum import Enum
+
+# class syntax
+class Priority(Enum):
+    RED = 1
+    GREEN = 2
+    YELLOW = 3
+    BLACK = 4
+
+# functional syntax
+Color = Enum('Color', [('RED', 1), ('GREEN', 2), ('YELLOW', 3) , ('BLACK' , 4)])
