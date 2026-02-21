@@ -1,16 +1,15 @@
 function enableStylesheet(stylesheet) {
-	stylesheet.disabled = false;
+  stylesheet.disabled = false;
 }
 
 function disableStylesheet(stylesheet) {
-	stylesheet.disabled = true;
+  stylesheet.disabled = true;
 }
 
 function toggleStylesheet(stylesheet) {
-	if(stylesheet.disabled) {
-		stylesheet.disabled = false;
-	}
-	else {
-		stylesheet.disabled = true;
-	}
+  if (stylesheet.disabled) {
+    stylesheet.disabled = false;
+  } else {
+    stylesheet.disabled = true;
+  }
 }
