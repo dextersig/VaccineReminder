@@ -65,16 +65,20 @@ submitBtn.addEventListener("click", () => {
   if (document.getElementById("Hyposplenic").checked) {
     conditions.push(document.getElementById("Hyposplenic").value);
   }
-  if (
-    document.getElementById(
-      "Incompletely Immunized - OPV and less than 2 IPV Doses",
-    ).checked
-  ) {
-    conditions.push(
-      document.getElementById(
-        "Incompletely Immunized - OPV and less than 2 IPV Doses",
-      ).value,
-    );
+  if (document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").checked) {
+    conditions.push(document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").value);
+  }
+  if (document.getElementById("Student").checked) {
+    conditions.push(document.getElementById("Student").value);
+  }
+  if (document.getElementById("Retired").checked) {
+    conditions.push(document.getElementById("Retired").value);
+  }
+  if (document.getElementById("Healthcare Worker").checked) {
+    conditions.push(document.getElementById("Healthcare Worker").value);
+  }
+  if (document.getElementById("General Worker").checked) {
+    conditions.push(document.getElementById("General Worker").value);
   }
 
   //vaccines
