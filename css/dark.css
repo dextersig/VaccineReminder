@@ -1,13 +1,14 @@
 @import "styles.css";
 
 body {
-	background-color: #EBB1d9;
+	background-color: #160d13;
+	color: white;
 }
 
 header {
-	background-color: #DD7DBF;
+	background-color: #2c1926;
 }
 
 footer {
-	background-color: #DD7DBF;
+	background-color: #160d13;
 }
