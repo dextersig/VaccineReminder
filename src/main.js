@@ -114,7 +114,7 @@ submitBtn.addEventListener("click", () => {
   };
 
   emailjs
-    .send("service_62d5msb", "template_hn5qc5r", templateParams)
+    .send("service_cphd9lc", "template_hn5qc5r", templateParams)
     .then(() => {
       console.log("Email sent successfully");
     })
