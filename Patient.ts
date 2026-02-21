@@ -1,4 +1,13 @@
 class Patient {
-    #name : string;
+    #name! : string;
+    #ageInMonths! : number;
+    #conditions! : String[];
 
+    get age() {
+        return this.#ageInMonths;
+    }
+
+    get conditions() {
+        return this.#conditions;
+    }
 }
