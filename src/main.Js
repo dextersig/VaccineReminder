@@ -1,10 +1,6 @@
-import "./styles.css";
-import "./dark.css";
-import "./light.css";
-
-import { Patient } from "./model/Patient";
-import { RuleEngine } from "./model/RuleEngine";
-import { MMRV, IPV, Varicella } from "./model/VaccineEligibility";
+import { Patient } from "./model/Patient.js";
+import { RuleEngine } from "./model/RuleEngine.js";
+import { MMRV, IPV, Varicella } from "./model/VaccineEligibility.js";
 
 const submitBtn = document.getElementById("submitBtn");
 

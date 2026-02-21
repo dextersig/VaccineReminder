@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import { VaccineRule } from "./VaccineRule";
 import { VaccineStatus } from "./VaccineStatus";
+=======
+import { Patient } from "./Patient.js";
+import { VaccineRule } from "./VaccineRule.js";
+import { VaccineStatus } from "./VaccineStatus.js";
+>>>>>>> 1e645d6c0be5291181cece46bd365b45ac9834eb
 
 export class MMRV extends VaccineRule {
   name = "MMRV";
