@@ -1,5 +1,5 @@
 import { Patient } from "./Patient";
-import { VaccineRule } from "./VaccineRUle";
+import { VaccineRule } from "./VaccineRule";
 import { VaccineStatus } from "./VaccineStatus";
 
 export class MMRV implements VaccineRule {
@@ -15,7 +15,10 @@ export class IPV implements VaccineRule {
   name = "IPV";
 
   checkEligibility(patient: Patient): VaccineStatus {
-    if (patient.age < 216 && isFound(this.search_strings, patient.conditions))
+    if (
+      patient.age < 216 &&
+      containsAny(this.search_strings, patient.conditions)
+    )
       return VaccineStatus.ELIGIBLE_NOW;
     return VaccineStatus.NOT_ELIGIBLE;
   }
@@ -34,12 +37,15 @@ export class Varicella implements VaccineRule {
   name = "Varicella";
 
   checkEligibility(patient: Patient): VaccineStatus {
-    if (patient.age < 192 && isFound(this.search_strings, patient.conditions))
+    if (
+      patient.age < 192 &&
+      containsAny(this.search_strings, patient.conditions)
+    )
       return VaccineStatus.ELIGIBLE_NOW;
     return VaccineStatus.NOT_ELIGIBLE;
   }
 }
 
-function isFound(arr1: String[], arr2: String[]): boolean {
-  return arr1.some((ai) => arr2.includes(ai));
+export function containsAny(search: string[], patient: string[]): boolean {
+  return search.some((s) => patient.includes(s));
 }
