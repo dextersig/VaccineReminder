@@ -1,5 +1,5 @@
-import { VaccineRule } from "./VaccineRule";
-import { Patient } from "./Patient";
+import { VaccineRule } from "./VaccineRule.js";
+import { Patient } from "./Patient.js";
 
 export class RuleEngine {
   #rules;

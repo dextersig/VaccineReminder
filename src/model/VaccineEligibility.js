@@ -1,6 +1,6 @@
-import { Patient } from "./Patient";
-import { VaccineRule } from "./VaccineRule";
-import { VaccineStatus } from "./VaccineStatus";
+import { Patient } from "./Patient.js";
+import { VaccineRule } from "./VaccineRule.js";
+import { VaccineStatus } from "./VaccineStatus.js";
 
 export class MMRV extends VaccineRule {
   name = "MMRV";

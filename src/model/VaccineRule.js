@@ -1,5 +1,5 @@
-import { VaccineStatus } from "./VaccineStatus";
-import { Patient } from "./Patient";
+import { VaccineStatus } from "./VaccineStatus.js";
+import { Patient } from "./Patient.js";
 
 export class VaccineRule {
   #name;
