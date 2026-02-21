@@ -1,14 +1,15 @@
-function MMRV(patient : Patient) {
+import {Patient} from "./Patient"
+export function MMRV(patient : Patient) {
     return patient.age < 144;
 }
 
-function IPV(patient: Patient) {
+export function IPV(patient: Patient) {
     let search_strings = ["unimmunised", "Incompletely immunized"];
 
     return patient.age < 216 && isFound(search_strings , patient.conditions)
 }
 
-function Varicella(patient: Patient) {
+export function Varicella(patient: Patient) {
     let search_strings = [
       "Chronic salicylate therapy",
       "HIV",
