@@ -11,13 +11,18 @@ body {
 	background-color: #EBB1D9;
 }
 
-.myHeader {
+header {
 	background-color: #DD7DBF;
 	color: black;
 	text-align: center;
 	min-width: 100%;
 }
 
-.myFooter {
+main {
+	padding-top: 2vh;
+	text-align: center;
+}
+
+footer {
 	background-color: #DD7DBF;
 }
