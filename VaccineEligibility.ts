@@ -5,7 +5,7 @@ import { VaccineStatus } from "./VaccineStatus";
 export class MMRV implements VaccineRule {
   name = "MMRV";
   checkEligibility(patient: Patient): VaccineStatus {
-    if (patient.age < 144) return VaccineStatus.ELIGIBLE_NOW;
+    if (patient.ageInYears < 12) return VaccineStatus.ELIGIBLE_NOW;
     return VaccineStatus.NOT_ELIGIBLE;
   }
 }
@@ -16,7 +16,7 @@ export class IPV implements VaccineRule {
 
   checkEligibility(patient: Patient): VaccineStatus {
     if (
-      patient.age < 216 &&
+      patient.ageInYears < 18 &&
       containsAny(this.search_strings, patient.conditions)
     )
       return VaccineStatus.ELIGIBLE_NOW;
@@ -38,7 +38,7 @@ export class Varicella implements VaccineRule {
 
   checkEligibility(patient: Patient): VaccineStatus {
     if (
-      patient.age < 192 &&
+      patient.ageInYears < 16 &&
       containsAny(this.search_strings, patient.conditions)
     )
       return VaccineStatus.ELIGIBLE_NOW;
