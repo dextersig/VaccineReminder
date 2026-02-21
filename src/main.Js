@@ -1,6 +1,6 @@
 import { Patient } from "./model/Patient.js";
 import { RuleEngine } from "./model/RuleEngine.js";
-import { MMRV, IPV, Varicella } from "./model/VaccineEligibility.js";
+import { IPV, MMRV, Varicella } from "./model/VaccineEligibility.js";
 
 const submitBtn = document.getElementById("submitBtn");
 
@@ -12,68 +12,68 @@ submitBtn.addEventListener("click", () => {
   let vaccinesAndDates = [];
 
   //risk factors
-  if(document.getElementById("Chronic salicylate therapy").checked){
+  if (document.getElementById("Chronic salicylate therapy").checked) {
     conditions.push(document.getElementById("Chronic salicylate therapy").value);
   }
-  if(document.getElementById("HIV").checked){
+  if (document.getElementById("HIV").checked) {
     conditions.push(document.getElementById("HIV").value);
   }
-  if(document.getElementById("Asplenia").checked){
+  if (document.getElementById("Asplenia").checked) {
     conditions.push(document.getElementById("Asplenia").value);
   }
-  if(document.getElementById("Dialysis/Renal Disease").checked){
+  if (document.getElementById("Dialysis/Renal Disease").checked) {
     conditions.push(document.getElementById("Dialysis/Renal Disease").value);
   }
-  if(document.getElementById("Cystic fibrosis").checked){
+  if (document.getElementById("Cystic fibrosis").checked) {
     conditions.push(document.getElementById("Cystic fibrosis").value);
   }
-  if(document.getElementById("Organ transplant").checked){
+  if (document.getElementById("Organ transplant").checked) {
     conditions.push(document.getElementById("Organ transplant").value);
   }
-  if(document.getElementById("Cancer").checked){
+  if (document.getElementById("Cancer").checked) {
     conditions.push(document.getElementById("Cancer").value);
   }
-  if(document.getElementById("Hematopoietic stem cell transplant").checked){
+  if (document.getElementById("Hematopoietic stem cell transplant").checked) {
     conditions.push(document.getElementById("Hematopoietic stem cell transplant").value);
   }
-  if(document.getElementById("CAR T-cell therapy recipients").checked){
+  if (document.getElementById("CAR T-cell therapy recipients").checked) {
     conditions.push(document.getElementById("CAR T-cell therapy recipients").value);
   }
-  if(document.getElementById("Under the care of a haematologist or oncologist").checked){
-    conditions.push(document.getElementById("Under the care of a haematologist or oncologist" ).value);
+  if (document.getElementById("Under the care of a haematologist or oncologist").checked) {
+    conditions.push(document.getElementById("Under the care of a haematologist or oncologist").value);
   }
-  if(document.getElementById("Malignant neoplasms").checked){
+  if (document.getElementById("Malignant neoplasms").checked) {
     conditions.push(document.getElementById("Malignant neoplasms").value);
   }
-  if(document.getElementById("Hyposplenic").checked){
+  if (document.getElementById("Hyposplenic").checked) {
     conditions.push(document.getElementById("Hyposplenic").value);
   }
-  if(document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").checked){
+  if (document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").checked) {
     conditions.push(document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").value);
   }
 
   //vaccines
-  if(document.getElementById("MMRV Dose 1").checked){
+  if (document.getElementById("MMRV Dose 1").checked) {
     vaccinesAndDates.push(document.getElementById("MMRV Dose 1").name);
     vaccinesAndDates.push(document.getElementById("dayMMRVDose1").value);
   }
-  if(document.getElementById("MMRV Dose 2").checked){
+  if (document.getElementById("MMRV Dose 2").checked) {
     vaccinesAndDates.push(document.getElementById("MMRV Dose 2").name);
     vaccinesAndDates.push(document.getElementById("dayMMRVDose2").value);
   }
-  if(document.getElementById("IPV").checked){
+  if (document.getElementById("IPV").checked) {
     vaccinesAndDates.push(document.getElementById("IPV").name);
     vaccinesAndDates.push(document.getElementById("dayIPV").value);
   }
-  if(document.getElementById("Varicella Dose 1").checked){
+  if (document.getElementById("Varicella Dose 1").checked) {
     vaccinesAndDates.push(document.getElementById("Varicella Dose 1").name);
     vaccinesAndDates.push(document.getElementById("dayVaricellaDose1").value);
   }
-  if(document.getElementById("Varicella Dose 2").checked){
+  if (document.getElementById("Varicella Dose 2").checked) {
     vaccinesAndDates.push(document.getElementById("Varicella Dose 2").name);
     vaccinesAndDates.push(document.getElementById("dayVaricellaDose2").value);
   }
-  
+
 
 
 
