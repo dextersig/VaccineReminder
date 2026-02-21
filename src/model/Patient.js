@@ -3,12 +3,18 @@ export class Patient {
   #dateOfBirth;
   #conditions;
   #vaccinesAndDates;
+  #occupation;
 
-  constructor(name, dateOfBirth, conditions, vaccinesAndDates) {
+  constructor(name, dateOfBirth, occupation, conditions, vaccinesAndDates) {
     this.#name = name;
     this.#dateOfBirth = dateOfBirth;
+    this.#occupation = occupation; // Student, Retired, Healthcare worker, Worker
     this.#conditions = conditions;
     this.#vaccinesAndDates = vaccinesAndDates;
+  }
+
+  set vaccinesAndDates(array) {
+    this.#vaccinesAndDates = [];
   }
 
   get vaccinesAndDates() {
@@ -35,8 +41,11 @@ export class Patient {
     return age;
   }
 
-  get birthYear(){
+  get birthYear() {
     return this.#dateOfBirth.getFullYear();
+  }
+  get occupation() {
+    return this.#occupation;
   }
 
   get ageInMonths() {

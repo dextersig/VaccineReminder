@@ -16,66 +16,8 @@ submitBtn.addEventListener("click", () => {
   const birthDay = document.getElementById("birthDay").value;
   let vaccinesAndDates = [];
 
-  //risk factors
-  if (document.getElementById("Chronic salicylate therapy").checked) {
-    conditions.push(
-      document.getElementById("Chronic salicylate therapy").value,
-    );
-  }
-  if (document.getElementById("HIV").checked) {
-    conditions.push(document.getElementById("HIV").value);
-  }
-  if (document.getElementById("Asplenia").checked) {
-    conditions.push(document.getElementById("Asplenia").value);
-  }
-  if (document.getElementById("Dialysis/Renal Disease").checked) {
-    conditions.push(document.getElementById("Dialysis/Renal Disease").value);
-  }
-  if (document.getElementById("Cystic fibrosis").checked) {
-    conditions.push(document.getElementById("Cystic fibrosis").value);
-  }
-  if (document.getElementById("Organ transplant").checked) {
-    conditions.push(document.getElementById("Organ transplant").value);
-  }
-  if (document.getElementById("Cancer").checked) {
-    conditions.push(document.getElementById("Cancer").value);
-  }
-  if (document.getElementById("Hematopoietic stem cell transplant").checked) {
-    conditions.push(
-      document.getElementById("Hematopoietic stem cell transplant").value,
-    );
-  }
-  if (document.getElementById("CAR T-cell therapy recipients").checked) {
-    conditions.push(
-      document.getElementById("CAR T-cell therapy recipients").value,
-    );
-  }
-  if (
-    document.getElementById("Under the care of a haematologist or oncologist")
-      .checked
-  ) {
-    conditions.push(
-      document.getElementById("Under the care of a haematologist or oncologist")
-        .value,
-    );
-  }
-  if (document.getElementById("Malignant neoplasms").checked) {
-    conditions.push(document.getElementById("Malignant neoplasms").value);
-  }
-  if (document.getElementById("Hyposplenic").checked) {
-    conditions.push(document.getElementById("Hyposplenic").value);
-  }
-  if (
-    document.getElementById(
-      "Incompletely Immunized - OPV and less than 2 IPV Doses",
-    ).checked
-  ) {
-    conditions.push(
-      document.getElementById(
-        "Incompletely Immunized - OPV and less than 2 IPV Doses",
-      ).value,
-    );
-  }
+  const conditions = [...document.querySelectorAll('input[name="medical"]:checked, input[name="chronic"]:checked')]
+  .map(cb => cb.value);
 
   //vaccines
   if (document.getElementById("MMRVDose1").checked) {
