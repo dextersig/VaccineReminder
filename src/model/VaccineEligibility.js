@@ -15,16 +15,19 @@ export class MMRV extends VaccineRule {
 }
 
 export class IPV extends VaccineRule {
-  search_strings = ["unimmunised", "Incompletely immunized"];
+  search_strings1 = ["Hematopoietic stem cell transplant", "CAR T-cell therapy recipients",];
+  search_strings2 = ["Malignant neoplasms","Hyposplenic", "Asplenia",];
   name = "IPV";
 
   checkEligibility(patient) {
-    if (
-      patient.ageInYears < 18 ||
-      containsAny(this.search_strings, patient.conditions)
-    )
+    if (((patient.ageInYears < 18) && ((!patient.vaccinesAndDates.includes("IPV")) || patient.conditions.includes("Incompletely Immunized - OPV and less than 2 IPV Doses"))) ||
+      ((containsAny(this.search_strings1, patient.conditions)) || (containsAny(this.search_strings2, patient.conditions) && patient.conditions.includes("Under the care of a haematologist or oncologist"))) ){
       return VaccineStatus.ELIGIBLE_NOW;
-    return VaccineStatus.NOT_ELIGIBLE;
+    }else if(patient.vaccinesAndDates.includes("IPV")){
+      return VaccineStatus.COMPLETED;
+    }else{
+      return VaccineStatus.NOT_ELIGIBLE;
+    }
   }
 }
 

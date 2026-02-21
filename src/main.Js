@@ -42,6 +42,15 @@ submitBtn.addEventListener("click", () => {
   if(document.getElementById("Under the care of a haematologist or oncologist").checked){
     conditions.push(document.getElementById("Under the care of a haematologist or oncologist" ).value);
   }
+  if(document.getElementById("Malignant neoplasms").checked){
+    conditions.push(document.getElementById("Malignant neoplasms").value);
+  }
+  if(document.getElementById("Hyposplenic").checked){
+    conditions.push(document.getElementById("Hyposplenic").value);
+  }
+  if(document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").checked){
+    conditions.push(document.getElementById("Incompletely Immunized - OPV and less than 2 IPV Doses").value);
+  }
 
   //vaccines
   if(document.getElementById("MMRV Dose 1").checked){
