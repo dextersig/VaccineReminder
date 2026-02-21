@@ -1,10 +1,12 @@
 import { VaccineRule } from "./VaccineRule.js";
 import { VaccineStatus } from "./VaccineStatus.js";
 
-export class MMRV extends VaccineRule {
-  name = "MMRV";
+let varicellaCheck = false;
+
+export class MMR extends VaccineRule {
+  name = "MMR";
   checkEligibility(patient) {
-    if ((patient.ageInYears <= 12)) { //NEED TO CALL V AND MMR
+    if ((patient.ageInYears <= 12)) { 
       return VaccineStatus.ELIGIBLE_NOW;
     }else if(patient.vaccinesAndDates.includes("MMRV Dose 1") && patient.vaccinesAndDates.includes("MMRV Dose 2")){
       return VaccineStatus.COMPLETED;
@@ -53,12 +55,28 @@ export class Varicella extends VaccineRule {
       ((!(patient.vaccinesAndDates.includes("Varicella Dose 1") && patient.vaccinesAndDates.includes("Varicella Dose 2"))) &&
        ((!(patient.vaccinesAndDates.includes("Varicella Dose 1") && patient.vaccinesAndDates.includes("MMRV Dose 1"))) &&
       (!(patient.vaccinesAndDates.includes("MMRV Dose 1") && patient.vaccinesAndDates.includes("MMRV Dose 2")))))){
+        varicellaCheck = true;
         return VaccineStatus.ELIGIBLE_NOW;
       }else if(patient.vaccinesAndDates.includes("Varicella Dose 1") && patient.vaccinesAndDates.includes("Varicella Dose 2")){
+        varicellaCheck = false;
         return VaccineStatus.COMPLETED;
       }else{
+        varicellaCheck = false;
         return VaccineStatus.NOT_ELIGIBLE;
       }
+  }
+}
+
+export class MMRV extends VaccineRule {
+  name = "MMRV";
+  checkEligibility(patient) {
+    if ((patient.ageInYears <= 12) && (varicellaCheck)) { //NEED TO CALL V AND MMR
+      return VaccineStatus.ELIGIBLE_NOW;
+    }else if(patient.vaccinesAndDates.includes("MMRV Dose 1") && patient.vaccinesAndDates.includes("MMRV Dose 2")){
+      return VaccineStatus.COMPLETED;
+    }else{
+      return VaccineStatus.NOT_ELIGIBLE;
+    }
   }
 }
 

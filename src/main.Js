@@ -88,7 +88,7 @@ submitBtn.addEventListener("click", () => {
 
   const patient = new Patient(name, dob, conditions, vaccinesAndDates);
 
-  const engine = new RuleEngine([new MMRV(), new IPV(), new Varicella()]);
+  const engine = new RuleEngine([new Varicella(), new MMRV(), new IPV()]);
 
   const results = engine.evaluate(patient);
 
