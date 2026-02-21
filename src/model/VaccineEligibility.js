@@ -2,6 +2,7 @@ import { VaccineRule } from "./VaccineRule.js";
 import { VaccineStatus } from "./VaccineStatus.js";
 
 let varicellaCheck = false;
+let mmrCheck = false;
 
 export class MMR extends VaccineRule{
   search_strings1 = ["Hematopoietic stem cell transplant", "CAR T-cell therapy recipients"];
@@ -9,15 +10,17 @@ export class MMR extends VaccineRule{
 
   name = "MMR";
   checkEligibility(patient) {
-    if ((patient.ageInYears >= 1 || patient.birthYear >= 1945) || ((patient.birthYear >= 1970) && patient.occupation.includes("Student")) 
-    ||patient.occupation.includes("Healthcare Worker") ||
+    if (((patient.ageInYears >= 1 || patient.birthYear >= 1945)) || ((patient.birthYear >= 1970) && patient.occupation.includes("Student")) 
+    ||( patient.occupation.includes("Healthcare Worker"))||
      patient.conditions.includes("Under the care of a haematologist or oncologist") ||
       (containsAny(this.search_strings1, patient.conditions)) ||
        (containsAny(this.search_strings2, patient.conditions)))  { 
-      return VaccineStatus.ELIGIBLE_NOW && DoseEligibility.TWO_DOSE; // Those that are 1 year old and are born in >1945
+        mmrCheck = true;
+      return VaccineStatus.ELIGIBLE_NOW; // Those that are 1 year old and are born in >1945
     }else if((patient.birthYear <= 1984 && patient.birthYear >=1970) && (!patient.vaccinesAndDates.includes("MMR Dose 1") && (!patient.vaccinesAndDates.includes("MMR Dose 2"))
     || (patient.birthYear<=1970) && patient.occupation.includes("Student") )){ //Between 1970 and 984 OR students born before 1970 and are a student
       return VaccineStatus.ELIGIBLE_NOW && DoseEligibility.ONE_DOSE;
+      mmrCheck = true;
     }else if((patient.vaccinesAndDates.includes("MMRV Dose 1") && patient.vaccinesAndDates.includes("MMRV Dose 2"))){ // If patient already got a vaccine
       return VaccineStatus.COMPLETED;
     }else{
@@ -83,7 +86,7 @@ export class Varicella extends VaccineRule {
 export class MMRV extends VaccineRule {
   name = "MMRV";
   checkEligibility(patient) {
-    if ((patient.ageInYears <= 12) && (varicellaCheck)) { //NEED TO CALL V AND MMR
+    if ((patient.ageInYears <= 12) && (varicellaCheck) && (mmrCheck) ){ //NEED TO CALL V AND MMR
       return VaccineStatus.ELIGIBLE_NOW;
     }else if(patient.vaccinesAndDates.includes("MMRV Dose 1") && patient.vaccinesAndDates.includes("MMRV Dose 2")){
       return VaccineStatus.COMPLETED;

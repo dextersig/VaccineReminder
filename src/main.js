@@ -21,39 +21,39 @@ submitBtn.addEventListener("click", () => {
 
   //vaccines
   if (document.getElementById("MMRVDose1").checked) {
-    vaccinesAndDates.push(document.getElementById("MMRV Dose 1").name);
+    vaccinesAndDates.push(document.getElementById("MMRVDose1").name);
     vaccinesAndDates.push(document.getElementById("dayMMRVDose1").value);
   }
   if (document.getElementById("MMRVDose2").checked) {
-    vaccinesAndDates.push(document.getElementById("MMRV Dose 2").name);
+    vaccinesAndDates.push(document.getElementById("MMRVDose2").name);
     vaccinesAndDates.push(document.getElementById("dayMMRVDose2").value);
   }
   if (document.getElementById("IPVDose1").checked) {
-    vaccinesAndDates.push(document.getElementById("IPV Dose 1").name);
+    vaccinesAndDates.push(document.getElementById("IPVDose1").name);
     vaccinesAndDates.push(document.getElementById("dayIPVDose1").value);
   }
 
   if (document.getElementById("IPVDose2").checked) {
-    vaccinesAndDates.push(document.getElementById("IPV Dose 2").name);
+    vaccinesAndDates.push(document.getElementById("IPVDose2").name);
     vaccinesAndDates.push(document.getElementById("dayIPVDose2").value);
   }
 
   if (document.getElementById("MMRDose1").checked) {
-    vaccinesAndDates.push(document.getElementById("MMR Dose 1").name);
+    vaccinesAndDates.push(document.getElementById("MMRDose1").name);
     vaccinesAndDates.push(document.getElementById("dayMMRDose1").value);
   }
 
   if (document.getElementById("MMRDose2").checked) {
-    vaccinesAndDates.push(document.getElementById("MMR Dose 2").name);
+    vaccinesAndDates.push(document.getElementById("MMRDose2").name);
     vaccinesAndDates.push(document.getElementById("dayMMRDose2").value);
   }
 
   if (document.getElementById("VaricellaDose1").checked) {
-    vaccinesAndDates.push(document.getElementById("Varicella Dose 1").name);
+    vaccinesAndDates.push(document.getElementById("VaricellaDose1").name);
     vaccinesAndDates.push(document.getElementById("dayVaricellaDose1").value);
   }
   if (document.getElementById("VaricellaDose2").checked) {
-    vaccinesAndDates.push(document.getElementById("Varicella Dose 2").name);
+    vaccinesAndDates.push(document.getElementById("VaricellaDose2").name);
     vaccinesAndDates.push(document.getElementById("dayVaricellaDose2").value);
   }
 
@@ -68,7 +68,7 @@ submitBtn.addEventListener("click", () => {
 
   const patient = new Patient(name, dob, conditions, vaccinesAndDates);
 
-  const engine = new RuleEngine([new Varicella(), new MMRV(), new IPV()]);
+  const engine = new RuleEngine([new Varicella(), new MMR(), new MMRV(), new IPV()]);
 
   const results = engine.evaluate(patient);
 
