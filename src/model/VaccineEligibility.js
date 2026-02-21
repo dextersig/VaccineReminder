@@ -1,4 +1,3 @@
-import { Patient } from "./Patient";
 import { VaccineRule } from "./VaccineRule";
 import { VaccineStatus } from "./VaccineStatus";
 

@@ -1,6 +1,3 @@
-import { VaccineRule } from "./VaccineRule";
-import { Patient } from "./Patient";
-
 export class RuleEngine {
   #rules;
 
