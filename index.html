@@ -45,7 +45,21 @@
 		<input type="checkbox" id="condition5" name="condition2">
 		<label for="condition2">Condition2</label><br>
 		<input type="checkbox" id="condition6" name="condition3">
-		<label for="condition3">Condition3</label><br><br>
+		<label for="condition3">Condition3</label><br>
+
+    <!-- Vaccines -->
+    <p>Vaccines</p>
+    <input type="checkbox" id="vaccine1" name="vaccine1">
+		<label for="vaccine1">Vaccine1</label>
+    <input type = "date" id = "dayVaccine1" name = "dayVaccine1" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+		<input type="checkbox" id="vaccine2" name="vaccine2">
+		<label for="vaccine2">Vaccine2</label>
+    <input type = "date" id = "dayVaccine2" name = "dayVaccine2" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+		<input type="checkbox" id="vaccine3" name="vaccine3">
+		<label for="vaccine3">Vaccine3</label>
+    <input type = "date" id = "dayVaccine3" name = "dayVaccine3" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br><br>
+
+
 
 		<!-- email -->
 		<label for="email">Email:</label>
@@ -57,7 +71,22 @@
 
 		</form>
 
-
+    <!-- 0: "FName"
+          1: "LName"
+          2: "1967-04-13"
+          3: false (condition1)
+          4: false
+          5: false (condition3)
+          6: false
+          7: false
+          8: false (condition6)
+          9: false (vaccine 1 )
+          10: "1967-04-13" (vaccine1 date)
+          11: false
+          12: "1967-04-13"
+          13: false (vaccine3)
+          14: "1967-04-13" (vaccine3 date)
+          15: "email@gmail.com" -->
     <script>
       function getUserData(){
         const form = [];
@@ -70,8 +99,12 @@
         form.push(document.getElementById('condition4').checked);
         form.push(document.getElementById('condition5').checked);
         form.push(document.getElementById('condition6').checked);
-        form.push(document.getElementById('condition1').checked);
-        form.push(document.getElementById('condition2').checked);
+        form.push(document.getElementById('vaccine1').checked);
+        form.push(document.getElementById('dayVaccine1').value);
+        form.push(document.getElementById('vaccine2').checked);
+        form.push(document.getElementById('dayVaccine2').value);
+        form.push(document.getElementById('vaccine3').checked);
+        form.push(document.getElementById('dayVaccine3').value);
         form.push(document.getElementById('email').value);
         console.log(form);
       }
