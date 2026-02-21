@@ -9,6 +9,7 @@ submitBtn.addEventListener("click", () => {
   const lastName = document.getElementById("lastName").value;
   const birthDay = document.getElementById("birthDay").value;
   let conditions = [];
+  let vaccinesAndDates = [];
 
   //risk factors
   if(document.getElementById("Chronic salicylate therapy").checked){
@@ -41,6 +42,24 @@ submitBtn.addEventListener("click", () => {
   if(document.getElementById("Under the care of a haematologist or oncologist").checked){
     conditions.push(document.getElementById("Under the care of a haematologist or oncologist" ).value);
   }
+
+  //vaccines
+  if(document.getElementById("MMRV").checked){
+    vaccinesAndDates.push(document.getElementById("MMRV").name);
+    vaccinesAndDates.push(document.getElementById("dayMMRV").value);
+  }
+  if(document.getElementById("IPV").checked){
+    vaccinesAndDates.push(document.getElementById("IPV").name);
+    vaccinesAndDates.push(document.getElementById("dayIPV").value);
+  }
+  if(document.getElementById("Varicella Dose 1").checked){
+    vaccinesAndDates.push(document.getElementById("Varicella Dose 1").name);
+    vaccinesAndDates.push(document.getElementById("dayVaricellaDose1").value);
+  }
+  if(document.getElementById("Varicella Dose 2").checked){
+    vaccinesAndDates.push(document.getElementById("Varicella Dose 2").name);
+    vaccinesAndDates.push(document.getElementById("dayVaricellaDose2").value);
+  }
   
 
 
@@ -54,7 +73,7 @@ submitBtn.addEventListener("click", () => {
 
   const dob = new Date(birthDay);
 
-  const patient = new Patient(name, dob, conditions);
+  const patient = new Patient(name, dob, conditions, vaccinesAndDates);
 
   const engine = new RuleEngine([new MMRV(), new IPV(), new Varicella()]);
 

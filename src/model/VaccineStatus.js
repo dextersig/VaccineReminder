@@ -3,4 +3,5 @@ export const VaccineStatus = {
   DUE_SOON: "DUE SOON",
   OVERDUE: "OVERDUE",
   NOT_ELIGIBLE: "NOT ELIGIBLE",
+  COMPLETED: "COMPLETED",
 };

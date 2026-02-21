@@ -2,11 +2,17 @@ export class Patient {
   #name;
   #dateOfBirth;
   #conditions;
+  #vaccinesAndDates;
 
-  constructor(name, dateOfBirth, conditions) {
+  constructor(name, dateOfBirth, conditions, vaccinesAndDates) {
     this.#name = name;
     this.#dateOfBirth = dateOfBirth;
     this.#conditions = conditions;
+    this.#vaccinesAndDates = vaccinesAndDates;
+  }
+
+  get vaccinesAndDates() {
+    return this.#vaccinesAndDates;
   }
 
   get conditions() {
