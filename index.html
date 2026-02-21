@@ -2,6 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/dark.css" id="dark"/>
+	<link rel="stylesheet" href="css/light.css" id="light" />
+
+	<!-- Sour Gummy font import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Vaccine Reminder</title>
   </head>
 
@@ -14,12 +23,12 @@
     <main>
       <form id="userData">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" />
+        <input type="text" id="firstName" /><br>
 
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" />
+        <input type="text" id="lastName" /><br>
 
-        <input type="date" id="birthDay" />
+        <input type="date" id="birthDay" /><br>
 
         <button type="button" id="submitBtn">Submit</button>
       </form>
