@@ -17,11 +17,12 @@ header {
 	justify-content: space-between;
 	flex-flow: row nowrap;
 	min-width: 100%;
-	
+	padding-left: 2vw;
 }
 
 header button {
 	max-height: 50%;
+	padding-right: 2.5vw;
 }
 
 main {
