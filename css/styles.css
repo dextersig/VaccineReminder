@@ -1,4 +1,5 @@
 body {
+	transition: background-color 0.24s, color 0.24s;
 	border: 0;
 	margin: 0;
 	overflow-x:hidden;
@@ -11,8 +12,15 @@ body {
 }
 
 header {
-	text-align: center;
+	transition: background-color 0.24s, color 0.24s;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row nowrap;
 	min-width: 100%;
+}
+
+header button {
+	max-height: 50%;
 }
 
 main {
