@@ -1,0 +1,169 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vaccreminder</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html> -->
+<!doctype html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/dark.css" id="dark"/>
+	<link rel="stylesheet" href="css/light.css" id="light" />
+
+	<!-- Sour Gummy font import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+	<title>Vaccine Reminder</title>
+  </head>
+
+<body>
+	<header>
+		<!-- title and stuff-->
+		<h1>Vaccine Reminder</h1>
+		<button type="button" onclick="toggleStylesheet(light)">Toggle Theme</button>
+	</header>
+    <!-- date of birth, medical conditions and chronic conditions, email notifs-->
+
+	<main>
+
+		<form id = "userData" action="/submit_page" >
+			<!-- Name -->
+			<label for="firstName">First Name:</label>
+			<input type = "text" id="firstName" name = "firstName"><br>
+			<label for="lastName">Last Name:</label>
+			<input type = "text" id="lastName" name = "lastName"><br><br>
+
+			<!-- Date of Birth -->
+			<input type = "date" id = "birth day" name = "birth day" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01">
+
+			<!-- Medical Conditions -->
+		<p>Medical Conditions</p>
+		<input type="checkbox" id="condition1" name="medical" value = "condition1">
+		<label for="condition1">Condition 1</label><br>
+		<input type="checkbox" id="condition2" name="medical" value = "condition2">
+		<label for="condition2">Condition2</label><br>
+		<input type="checkbox" id="condition3" name="medical" value = "condition3">
+		<label for="condition3">Condition3</label><br>
+
+		<!-- Chronic Conditions -->
+		<p>Chronic Conditions</p>
+		<input type="checkbox" id="condition4" name="chronic" value = "condition4">
+		<label for="condition4">Condition 1</label><br>
+		<input type="checkbox" id="condition5" name="chronic" value = "condition5">
+		<label for="condition5">Condition2</label><br>
+		<input type="checkbox" id="condition6" name="chronic" value = "condition6">
+		<label for="condition6">Condition3</label><br>
+
+    <!-- Vaccines -->
+    <p>Vaccines</p>
+    <input type="checkbox" id="vaccine1" name="vaccine1">
+		<label for="vaccine1">Vaccine1</label>
+    <input type = "date" id = "dayVaccine1" name = "vaccine1" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+		<input type="checkbox" id="vaccine2" name="vaccine2">
+		<label for="vaccine2">Vaccine2</label>
+    <input type = "date" id = "dayVaccine2" name = "vaccine2" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+		<input type="checkbox" id="vaccine3" name="vaccine3">
+		<label for="vaccine3">Vaccine3</label>
+    <input type = "date" id = "dayVaccine3" name = "vaccine3" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br><br>
+
+
+
+			<!-- email -->
+			<label for="email">Email:</label>
+			<input type = "email" id="email" name = "email"><br>
+
+			<!-- submit -->
+			<br>
+			<button type = "submit" onclick = "getUserData()">Submit</button>
+
+			</form>
+		</main>
+
+    <!-- 0: "FName"
+          1: "LName"
+          2: "1967-04-13"
+          3: false (condition1)
+          4: false
+          5: false (condition3)
+          6: false
+          7: false
+          8: false (condition6)
+          9: false (vaccine 1 )
+          10: "1967-04-13" (vaccine1 date)
+          11: false
+          12: "1967-04-13"
+          13: false (vaccine3)
+          14: "1967-04-13" (vaccine3 date)
+          15: "email@gmail.com" -->
+    <!-- <script>
+      function getUserData(){
+        const form = [];
+        form.push(document.getElementById('firstName').value);
+        form.push(document.getElementById('lastName').value);
+        form.push(document.getElementById('birth day').value);
+        form.push(document.getElementById('condition1').checked);
+        form.push(document.getElementById('condition2').checked);
+        form.push(document.getElementById('condition3').checked);
+        form.push(document.getElementById('condition4').checked);
+        form.push(document.getElementById('condition5').checked);
+        form.push(document.getElementById('condition6').checked);
+        form.push(document.getElementById('vaccine1').checked);
+        form.push(document.getElementById('dayVaccine1').value);
+        form.push(document.getElementById('vaccine2').checked);
+        form.push(document.getElementById('dayVaccine2').value);
+        form.push(document.getElementById('vaccine3').checked);
+        form.push(document.getElementById('dayVaccine3').value);
+        form.push(document.getElementById('email').value);
+        console.log(form);
+      }
+    </script> -->
+    <script>
+      const form = document.getElementById('userData');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        data.medical = formData.getAll('medical'); // Get all selected medical conditions
+        data.chronic = formData.getAll('chronic'); // Get all selected chronic conditions
+        data.vaccine = formData.getAll('vaccine'); // Get all selected vaccines
+        const data_string = JSON.stringify(data, null, 2); // To make it retty and readable
+
+        // Test Download
+        const file = new Blob([data_string], { type: 'application/json' });
+        const url = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'form_data.json';
+        link.click();
+        URL.revokeObjectURL(url); 
+
+        console.log(data); // Log the form data to the console
+        alert('Form submitted'); // Test if form submission is working
+
+       
+      });
+    </script>
+
+	<script src=js/themeSwitcher.js></script>
+
+
+		<!-- body and stuff-->
+	</main>
+	
+	<footer>
+	<!-- footer and stuff-->
+    </footer>
+  </body>
+</html>

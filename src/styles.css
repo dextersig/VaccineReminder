@@ -1,0 +1,32 @@
+body {
+	transition: background-color 0.24s, color 0.24s;
+	border: 0;
+	margin: 0;
+	overflow-x:hidden;
+    overflow-y: scroll; /*Stop bouncing around when switching pages*/
+    padding: 0;
+	display: flex;
+	flex-direction: column;
+	font-family: "Sour Gummy", sans-serif;
+	font-size: 16px;
+}
+
+header {
+	transition: background-color 0.24s, color 0.24s;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row nowrap;
+	min-width: 100%;
+	padding-left: 2vw;
+}
+
+header button {
+	max-height: 50%;
+	padding-right: 2.5vw;
+}
+
+main {
+	padding-top: 4vh;
+	text-align: center;
+}
+
