@@ -2,20 +2,36 @@ import "./VaccineEligibility";
 
 export class Patient {
   #name: string;
-  #ageInMonths: number;
+  #dob: string;
   #conditions: string[];
 
-  constructor(name: string, age: number, conditions: string[]) {
+  constructor(name: string, dob: string, conditions: string[]) {
     this.#name = name;
-    this.#ageInMonths = age * 12;
+    this.#dob = dob;
     this.#conditions = conditions;
   }
 
   get age(): number {
-    return this.#ageInMonths;
+    return this.calculateAge(this.#dob) * 12;
   }
 
   get conditions(): string[] {
     return this.#conditions;
+  }
+
+  calculateAge(dateString: string): number {
+    const dob = new Date(dateString);
+    const today = new Date();
+
+    let age = today.getFullYear() - dob.getFullYear();
+
+    if (
+      today.getMonth() < dob.getMonth() ||
+      (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
   }
 }
