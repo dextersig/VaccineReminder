@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vaccine Reminder</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/dark.css" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,59 +17,60 @@
     </header>
     <!-- date of birth, medical conditions and chronic conditions, email notifs-->
 
+	<main>
+
+		<form id = "userData" action="/submit_page" >
+			<!-- Name -->
+			<label for="firstName">First Name:</label>
+			<input type = "text" id="firstName" name = "firstName"><br>
+			<label for="lastName">Last Name:</label>
+			<input type = "text" id="lastName" name = "lastName"><br><br>
+
+			<!-- Date of Birth -->
+			<input type = "date" id = "birth day" name = "birth day" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01">
+
+			<!-- Medical Conditions -->
+			<p>Medical Conditions</p>
+			<input type="checkbox" id="condition1" name="condition1">
+			<label for="condition1">Condition 1</label><br>
+			<input type="checkbox" id="condition2" name="condition2">
+			<label for="condition2">Condition2</label><br>
+			<input type="checkbox" id="condition3" name="condition3">
+			<label for="condition3">Condition3</label><br>
+
+			<!-- Chronic Conditions -->
+			<p>Chronic Conditions</p>
+			<input type="checkbox" id="condition4" name="condition1">
+			<label for="condition1">Condition 1</label><br>
+			<input type="checkbox" id="condition5" name="condition2">
+			<label for="condition2">Condition2</label><br>
+			<input type="checkbox" id="condition6" name="condition3">
+			<label for="condition3">Condition3</label><br>
+
+			<!-- Vaccines -->
+			<p>Vaccines</p>
+			<input type="checkbox" id="vaccine1" name="vaccine1">
+			<label for="vaccine1">Vaccine1</label>
+			<input type = "date" id = "dayVaccine1" name = "dayVaccine1" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+			<input type="checkbox" id="vaccine2" name="vaccine2">
+			<label for="vaccine2">Vaccine2</label>
+			<input type = "date" id = "dayVaccine2" name = "dayVaccine2" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+			<input type="checkbox" id="vaccine3" name="vaccine3">
+			<label for="vaccine3">Vaccine3</label>
+			<input type = "date" id = "dayVaccine3" name = "dayVaccine3" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br><br>
 
 
-    <form id = "userData" action="/submit_page" >
-      <!-- Name -->
-      <label for="firstName">First Name:</label>
-      <input type = "text" id="firstName" name = "firstName"><br>
-      <label for="lastName">Last Name:</label>
-      <input type = "text" id="lastName" name = "lastName"><br><br>
 
-		<!-- Date of Birth -->
-		<input type = "date" id = "birth day" name = "birth day" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01">
+			<!-- email -->
+			<label for="email">Email:</label>
+			<input type = "email" id="email" name = "email"><br>
 
-		<!-- Medical Conditions -->
-		<p>Medical Conditions</p>
-		<input type="checkbox" id="condition1" name="condition1">
-		<label for="condition1">Condition 1</label><br>
-		<input type="checkbox" id="condition2" name="condition2">
-		<label for="condition2">Condition2</label><br>
-		<input type="checkbox" id="condition3" name="condition3">
-		<label for="condition3">Condition3</label><br>
+			<!-- submit -->
+			<br>
+			<button type = "button" onclick = "getUserData()">Submit</button>
 
-		<!-- Chronic Conditions -->
-		<p>Chronic Conditions</p>
-		<input type="checkbox" id="condition4" name="condition1">
-		<label for="condition1">Condition 1</label><br>
-		<input type="checkbox" id="condition5" name="condition2">
-		<label for="condition2">Condition2</label><br>
-		<input type="checkbox" id="condition6" name="condition3">
-		<label for="condition3">Condition3</label><br>
-
-    <!-- Vaccines -->
-    <p>Vaccines</p>
-    <input type="checkbox" id="vaccine1" name="vaccine1">
-		<label for="vaccine1">Vaccine1</label>
-    <input type = "date" id = "dayVaccine1" name = "dayVaccine1" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
-		<input type="checkbox" id="vaccine2" name="vaccine2">
-		<label for="vaccine2">Vaccine2</label>
-    <input type = "date" id = "dayVaccine2" name = "dayVaccine2" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
-		<input type="checkbox" id="vaccine3" name="vaccine3">
-		<label for="vaccine3">Vaccine3</label>
-    <input type = "date" id = "dayVaccine3" name = "dayVaccine3" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br><br>
-
-
-
-		<!-- email -->
-		<label for="email">Email:</label>
-		<input type = "email" id="email" name = "email"><br>
-
-		<!-- submit -->
-		<br>
-		<button type = "button" onclick = "getUserData()">Submit</button>
-
-		</form>
+			</form>
+		</main>
 
     <!-- 0: "FName"
           1: "LName"

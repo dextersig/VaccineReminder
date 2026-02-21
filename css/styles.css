@@ -8,12 +8,9 @@ body {
 	flex-direction: column;
 	font-family: "Sour Gummy", sans-serif;
 	font-size: 16px;
-	background-color: #EBB1D9;
 }
 
 header {
-	background-color: #DD7DBF;
-	color: black;
 	text-align: center;
 	min-width: 100%;
 }
@@ -23,6 +20,3 @@ main {
 	text-align: center;
 }
 
-footer {
-	background-color: #DD7DBF;
-}
