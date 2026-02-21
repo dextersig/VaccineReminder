@@ -1,4 +1,4 @@
-const VaccineStatus = {
+export const VaccineStatus = {
   ELIGIBLE_NOW: "ELIGIBLE NOW",
   DUE_SOON: "DUE SOON",
   OVERDUE: "OVERDUE",
