@@ -1,12 +1,12 @@
 import { Patient } from "./model/Patient.js";
 import { RuleEngine } from "./model/RuleEngine.js";
-import { IPV, MMRV, Varicella } from "./model/VaccineEligibility.js";
+
+import { IPV, MMR, MMRV, Varicella } from "./model/VaccineEligibility.js";
 import emailjs from "@emailjs/browser";
 
 emailjs.init({
 publicKey: "-X43-bLZm01-sjqVv",
 });
-
 
 const submitBtn = document.getElementById("submitBtn");
 
@@ -16,7 +16,6 @@ const lastName = document.getElementById("lastName").value;
 const birthDay = document.getElementById("birthDay").value;
 let conditions = [];
 let vaccinesAndDates = [];
-let email;
 
 //risk factors
 if (document.getElementById("Chronic salicylate therapy").checked) {
@@ -80,8 +79,6 @@ if (document.getElementById("Varicella Dose 2").checked) {
 vaccinesAndDates.push(document.getElementById("Varicella Dose 2").name);
 vaccinesAndDates.push(document.getElementById("dayVaricellaDose2").value);
 }
-
-email = document.getElementById("Varicella Dose 2").value;
 
 
 const name = `${firstName} ${lastName}`;
