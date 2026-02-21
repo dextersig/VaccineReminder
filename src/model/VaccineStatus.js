@@ -1,0 +1,6 @@
+const VaccineStatus = {
+  ELIGIBLE_NOW: "ELIGIBLE NOW",
+  DUE_SOON: "DUE SOON",
+  OVERDUE: "OVERDUE",
+  NOT_ELIGIBLE: "NOT ELIGIBLE",
+};

@@ -6,15 +6,12 @@ import { Patient } from "./model/Patient";
 import { RuleEngine } from "./model/RuleEngine";
 import { MMRV, IPV, Varicella } from "./model/VaccineEligibility";
 
-const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
+const submitBtn = document.getElementById("submitBtn");
 
 submitBtn.addEventListener("click", () => {
-  const firstName = (document.getElementById("firstName") as HTMLInputElement)
-    .value;
-  const lastName = (document.getElementById("lastName") as HTMLInputElement)
-    .value;
-  const birthDay = (document.getElementById("birthDay") as HTMLInputElement)
-    .value;
+  const firstName = document.getElementById("firstName").value;
+  const lastName = document.getElementById("lastName").value;
+  const birthDay = document.getElementById("birthDay").value;
 
   const name = `${firstName} ${lastName}`;
 
@@ -31,7 +28,7 @@ submitBtn.addEventListener("click", () => {
 
   const results = engine.evaluate(patient);
 
-  document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+  document.querySelector("#app").innerHTML = `
     <h1>Eligibility Results</h1>
     ${results.map((r) => `<p>${r.vaccine}: ${r.status}</p>`).join("")}
   `;

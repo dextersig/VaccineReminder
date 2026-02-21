@@ -2,19 +2,19 @@ import { Patient } from "./Patient";
 import { VaccineRule } from "./VaccineRule";
 import { VaccineStatus } from "./VaccineStatus";
 
-export class MMRV implements VaccineRule {
+export class MMRV extends VaccineRule {
   name = "MMRV";
-  checkEligibility(patient: Patient): VaccineStatus {
+  checkEligibility(patient) {
     if (patient.ageInYears < 12) return VaccineStatus.ELIGIBLE_NOW;
     return VaccineStatus.NOT_ELIGIBLE;
   }
 }
 
-export class IPV implements VaccineRule {
+export class IPV extends VaccineRule {
   search_strings = ["unimmunised", "Incompletely immunized"];
   name = "IPV";
 
-  checkEligibility(patient: Patient): VaccineStatus {
+  checkEligibility(patient) {
     if (
       patient.ageInYears < 18 ||
       containsAny(this.search_strings, patient.conditions)
@@ -24,7 +24,7 @@ export class IPV implements VaccineRule {
   }
 }
 
-export class Varicella implements VaccineRule {
+export class Varicella extends VaccineRule {
   search_strings = [
     "Chronic salicylate therapy",
     "HIV",
@@ -36,7 +36,7 @@ export class Varicella implements VaccineRule {
 
   name = "Varicella";
 
-  checkEligibility(patient: Patient): VaccineStatus {
+  checkEligibility(patient) {
     if (
       patient.ageInYears < 16 ||
       containsAny(this.search_strings, patient.conditions)
@@ -46,6 +46,6 @@ export class Varicella implements VaccineRule {
   }
 }
 
-export function containsAny(search: string[], patient: string[]): boolean {
+export function containsAny(search, patient) {
   return search.some((s) => patient.includes(s));
 }

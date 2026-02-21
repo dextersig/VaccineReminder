@@ -2,13 +2,13 @@ import { VaccineRule } from "./VaccineRule";
 import { Patient } from "./Patient";
 
 export class RuleEngine {
-  private rules: VaccineRule[];
+  #rules;
 
-  constructor(rules: VaccineRule[]) {
+  constructor(rules) {
     this.rules = rules;
   }
 
-  evaluate(patient: Patient) {
+  evaluate(patient) {
     return this.rules.map((rule) => ({
       vaccine: rule.name,
       status: rule.checkEligibility(patient),

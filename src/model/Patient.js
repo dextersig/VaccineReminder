@@ -1,19 +1,19 @@
 export class Patient {
-  #name: string;
-  #dateOfBirth: Date;
-  #conditions: string[];
+  #name;
+  #dateOfBirth;
+  #conditions;
 
-  constructor(name: string, dateOfBirth: Date, conditions: string[]) {
+  constructor(name, dateOfBirth, conditions) {
     this.#name = name;
     this.#dateOfBirth = dateOfBirth;
     this.#conditions = conditions;
   }
 
-  get conditions(): string[] {
+  get conditions() {
     return this.#conditions;
   }
 
-  get ageInYears(): number {
+  get ageInYears() {
     const today = new Date();
 
     let age = today.getFullYear() - this.#dateOfBirth.getFullYear();
@@ -29,7 +29,7 @@ export class Patient {
     return age;
   }
 
-  get ageInMonths(): number {
+  get ageInMonths() {
     return this.ageInYears * 12;
   }
 }
