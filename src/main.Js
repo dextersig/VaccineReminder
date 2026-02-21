@@ -44,9 +44,13 @@ submitBtn.addEventListener("click", () => {
   }
 
   //vaccines
-  if(document.getElementById("MMRV").checked){
-    vaccinesAndDates.push(document.getElementById("MMRV").name);
-    vaccinesAndDates.push(document.getElementById("dayMMRV").value);
+  if(document.getElementById("MMRV Dose 1").checked){
+    vaccinesAndDates.push(document.getElementById("MMRV Dose 1").name);
+    vaccinesAndDates.push(document.getElementById("dayMMRVDose1").value);
+  }
+  if(document.getElementById("MMRV Dose 2").checked){
+    vaccinesAndDates.push(document.getElementById("MMRV Dose 2").name);
+    vaccinesAndDates.push(document.getElementById("dayMMRVDose2").value);
   }
   if(document.getElementById("IPV").checked){
     vaccinesAndDates.push(document.getElementById("IPV").name);
