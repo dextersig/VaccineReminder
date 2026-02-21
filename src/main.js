@@ -1,6 +1,5 @@
 import { Patient } from "./model/Patient.js";
 import { RuleEngine } from "./model/RuleEngine.js";
-<<<<<<< HEAD
 import { IPV, MMR, MMRV, Varicella } from "./model/VaccineEligibility.js";
 =======
 import { IPV, MMRV, Varicella } from "./model/VaccineEligibility.js";
@@ -9,8 +8,6 @@ import emailjs from "@emailjs/browser";
 emailjs.init({
   publicKey: "-X43-bLZm01-sjqVv",
 });
-
->>>>>>> 0198af550a58491add0707ad527a86a4f44f4ae1
 
 const submitBtn = document.getElementById("submitBtn");
 
