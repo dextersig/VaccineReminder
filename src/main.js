@@ -1,6 +1,16 @@
 import { Patient } from "./model/Patient.js";
 import { RuleEngine } from "./model/RuleEngine.js";
+<<<<<<< HEAD
 import { IPV, MMR, MMRV, Varicella } from "./model/VaccineEligibility.js";
+=======
+import { IPV, MMRV, Varicella } from "./model/VaccineEligibility.js";
+import emailjs from "@emailjs/browser";
+
+emailjs.init({
+  publicKey: "-X43-bLZm01-sjqVv",
+});
+
+>>>>>>> 0198af550a58491add0707ad527a86a4f44f4ae1
 
 const submitBtn = document.getElementById("submitBtn");
 
@@ -104,6 +114,32 @@ submitBtn.addEventListener("click", () => {
   const engine = new RuleEngine([new Varicella(), new MMR(), new MMRV(), new IPV()]);
 
   const results = engine.evaluate(patient);
+
+  const userEmail = document.getElementById("email").value;
+  // format eligibility results nicely
+  const formattedResults = results
+    .map((r) => `${r.vaccine}: ${r.status}`)
+    .join("\n");
+
+  const templateParams = {
+    patient_name: name,
+    birthday: birthDay,
+    conditions: conditions.join(", "),
+    results: formattedResults,
+    user_email: userEmail,
+  };
+
+  emailjs
+    .send("service_62d5msb", "template_hn5qc5r", templateParams)
+    .then(() => {
+      console.log("Email sent successfully");
+    })
+    .catch((error) => {
+      console.error("Email failed:", error);
+    });
+
+  
+
 
   document.querySelector("#app").innerHTML = `
     <h1>Eligibility Results</h1>
