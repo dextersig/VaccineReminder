@@ -17,6 +17,7 @@ header {
 	justify-content: space-between;
 	flex-flow: row nowrap;
 	min-width: 100%;
+	
 }
 
 header button {

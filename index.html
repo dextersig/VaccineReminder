@@ -35,34 +35,34 @@
 			<input type = "date" id = "birth day" name = "birth day" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01">
 
 			<!-- Medical Conditions -->
-			<p>Medical Conditions</p>
-			<input type="checkbox" id="condition1" name="condition1">
-			<label for="condition1">Condition 1</label><br>
-			<input type="checkbox" id="condition2" name="condition2">
-			<label for="condition2">Condition2</label><br>
-			<input type="checkbox" id="condition3" name="condition3">
-			<label for="condition3">Condition3</label><br>
+		<p>Medical Conditions</p>
+		<input type="checkbox" id="condition1" name="medical" value = "condition1">
+		<label for="condition1">Condition 1</label><br>
+		<input type="checkbox" id="condition2" name="medical" value = "condition2">
+		<label for="condition2">Condition2</label><br>
+		<input type="checkbox" id="condition3" name="medical" value = "condition3">
+		<label for="condition3">Condition3</label><br>
 
-			<!-- Chronic Conditions -->
-			<p>Chronic Conditions</p>
-			<input type="checkbox" id="condition4" name="condition1">
-			<label for="condition1">Condition 1</label><br>
-			<input type="checkbox" id="condition5" name="condition2">
-			<label for="condition2">Condition2</label><br>
-			<input type="checkbox" id="condition6" name="condition3">
-			<label for="condition3">Condition3</label><br>
+		<!-- Chronic Conditions -->
+		<p>Chronic Conditions</p>
+		<input type="checkbox" id="condition4" name="chronic" value = "condition4">
+		<label for="condition4">Condition 1</label><br>
+		<input type="checkbox" id="condition5" name="chronic" value = "condition5">
+		<label for="condition5">Condition2</label><br>
+		<input type="checkbox" id="condition6" name="chronic" value = "condition6">
+		<label for="condition6">Condition3</label><br>
 
-			<!-- Vaccines -->
-			<p>Vaccines</p>
-			<input type="checkbox" id="vaccine1" name="vaccine1">
-			<label for="vaccine1">Vaccine1</label>
-			<input type = "date" id = "dayVaccine1" name = "dayVaccine1" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
-			<input type="checkbox" id="vaccine2" name="vaccine2">
-			<label for="vaccine2">Vaccine2</label>
-			<input type = "date" id = "dayVaccine2" name = "dayVaccine2" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
-			<input type="checkbox" id="vaccine3" name="vaccine3">
-			<label for="vaccine3">Vaccine3</label>
-			<input type = "date" id = "dayVaccine3" name = "dayVaccine3" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br><br>
+    <!-- Vaccines -->
+    <p>Vaccines</p>
+    <input type="checkbox" id="vaccine1" name="vaccine1">
+		<label for="vaccine1">Vaccine1</label>
+    <input type = "date" id = "dayVaccine1" name = "vaccine1" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+		<input type="checkbox" id="vaccine2" name="vaccine2">
+		<label for="vaccine2">Vaccine2</label>
+    <input type = "date" id = "dayVaccine2" name = "vaccine2" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br>
+		<input type="checkbox" id="vaccine3" name="vaccine3">
+		<label for="vaccine3">Vaccine3</label>
+    <input type = "date" id = "dayVaccine3" name = "vaccine3" value = "1967-04-13" min = "1900-01-01" max = "2100-01-01"><br><br>
 
 
 
@@ -93,7 +93,7 @@
           13: false (vaccine3)
           14: "1967-04-13" (vaccine3 date)
           15: "email@gmail.com" -->
-    <script>
+    <!-- <script>
       function getUserData(){
         const form = [];
         form.push(document.getElementById('firstName').value);
@@ -114,6 +114,33 @@
         form.push(document.getElementById('email').value);
         console.log(form);
       }
+    </script> -->
+    <script>
+      const form = document.getElementById('userData');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        data.medical = formData.getAll('medical'); // Get all selected medical conditions
+        data.chronic = formData.getAll('chronic'); // Get all selected chronic conditions
+        data.vaccine = formData.getAll('vaccine'); // Get all selected vaccines
+        const data_string = JSON.stringify(data, null, 2); // To make it retty and readable
+
+        // Test Download
+        const file = new Blob([data_string], { type: 'application/json' });
+        const url = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'form_data.json';
+        link.click();
+        URL.revokeObjectURL(url); 
+
+        console.log(data); // Log the form data to the console
+        alert('Form submitted'); // Test if form submission is working
+
+       
+      });
     </script>
 
 	<script src=js/themeSwitcher.js></script>
